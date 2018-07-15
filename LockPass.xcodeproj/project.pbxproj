@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43007F0E2064169600DC9035 /* ItemInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43007F0D2064169600DC9035 /* ItemInfoViewController.swift */; };
 		43C2F8661FB63E27004E78FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C2F8651FB63E27004E78FE /* AppDelegate.swift */; };
 		43C2F8681FB63E27004E78FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C2F8671FB63E27004E78FE /* ViewController.swift */; };
 		43C2F86B1FB63E28004E78FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C2F8691FB63E28004E78FE /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 		43C2F8731FB63E28004E78FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C2F8711FB63E28004E78FE /* LaunchScreen.storyboard */; };
 		43C2F87E1FB63E28004E78FE /* LockPassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C2F87D1FB63E28004E78FE /* LockPassTests.swift */; };
 		43C2F8891FB63E28004E78FE /* LockPassUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C2F8881FB63E28004E78FE /* LockPassUITests.swift */; };
+		43C2F8B91FB6416B004E78FE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C2F8B81FB6416B004E78FE /* MainViewController.swift */; };
+		43C2F8BB1FB64645004E78FE /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C2F8BA1FB64645004E78FE /* CreateAccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43007F0D2064169600DC9035 /* ItemInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoViewController.swift; sourceTree = "<group>"; };
+		43B20FCE20BB510900A27173 /* LockPass.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LockPass.entitlements; sourceTree = "<group>"; };
 		43C2F8621FB63E27004E78FE /* LockPass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LockPass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C2F8651FB63E27004E78FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43C2F8671FB63E27004E78FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +54,8 @@
 		43C2F8841FB63E28004E78FE /* LockPassUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LockPassUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C2F8881FB63E28004E78FE /* LockPassUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockPassUITests.swift; sourceTree = "<group>"; };
 		43C2F88A1FB63E28004E78FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43C2F8B81FB6416B004E78FE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		43C2F8BA1FB64645004E78FE /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +106,12 @@
 		43C2F8641FB63E27004E78FE /* LockPass */ = {
 			isa = PBXGroup;
 			children = (
+				43B20FCE20BB510900A27173 /* LockPass.entitlements */,
 				43C2F8651FB63E27004E78FE /* AppDelegate.swift */,
 				43C2F8671FB63E27004E78FE /* ViewController.swift */,
+				43C2F8BA1FB64645004E78FE /* CreateAccountViewController.swift */,
+				43C2F8B81FB6416B004E78FE /* MainViewController.swift */,
+				43007F0D2064169600DC9035 /* ItemInfoViewController.swift */,
 				43C2F8691FB63E28004E78FE /* Main.storyboard */,
 				43C2F86F1FB63E28004E78FE /* Assets.xcassets */,
 				43C2F8711FB63E28004E78FE /* LaunchScreen.storyboard */,
@@ -191,12 +202,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Nathan Lorenz";
 				TargetAttributes = {
 					43C2F8611FB63E27004E78FE = {
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
+						};
 					};
 					43C2F8781FB63E28004E78FE = {
 						CreatedOnToolsVersion = 9.0.1;
@@ -262,9 +278,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43C2F8BB1FB64645004E78FE /* CreateAccountViewController.swift in Sources */,
+				43007F0E2064169600DC9035 /* ItemInfoViewController.swift in Sources */,
 				43C2F86E1FB63E28004E78FE /* LockPass.xcdatamodeld in Sources */,
 				43C2F8681FB63E27004E78FE /* ViewController.swift in Sources */,
 				43C2F8661FB63E27004E78FE /* AppDelegate.swift in Sources */,
+				43C2F8B91FB6416B004E78FE /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +352,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -340,6 +360,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -367,7 +388,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -390,6 +411,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -397,6 +419,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -418,7 +441,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -430,11 +453,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LockPass/LockPass.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T29VDL6SJ5;
+				DEVELOPMENT_TEAM = 68AW59MP7J;
 				INFOPLIST_FILE = LockPass/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nathanlorenz.LockPass;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nathanlorenz.LocksPass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -445,11 +470,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LockPass/LockPass.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T29VDL6SJ5;
+				DEVELOPMENT_TEAM = 68AW59MP7J;
 				INFOPLIST_FILE = LockPass/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nathanlorenz.LockPass;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nathanlorenz.LocksPass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
