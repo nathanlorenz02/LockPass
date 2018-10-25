@@ -58,38 +58,59 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func goBackLogin(_ sender: Any)
     {
-        if passwordTextField1.text == passwordTextField2.text
+        if nameTextField.text != nil
         {
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            
-            let context = appDelegate.persistentContainer.viewContext
-            
-            let password = NSEntityDescription.insertNewObject(forEntityName: "Password", into: context)
-            let name = NSEntityDescription.insertNewObject(forEntityName: "Name", into: context)
-            
-            password.setValue(passwordTextField2.text, forKey: "password")
-            name.setValue(nameTextField.text, forKey: "name")
-            
-            do
+            if passwordTextField1!.text == nil || passwordTextField2.text == nil
             {
-                try context.save()
-                print("saved")
-            }
-            catch
-            {
-                let alert2 = UIAlertController(title: "There was a error", message: "There was a error and the password couldn't be saved.", preferredStyle: .alert)
+                let alert = UIAlertController(title: "You didn't add a password", message: "To ensure maximum safety of your passwords, please choose a password to begin.", preferredStyle: .alert)
                 let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert2.addAction(okButton)
-                self.present(alert2, animated: true, completion: nil)
+                alert.addAction(okButton)
+                alert.present(alert, animated: true, completion: nil)
             }
-            
-            performSegue(withIdentifier: "gotUser", sender: self)
+            else
+            {
+                if passwordTextField1.text == passwordTextField2.text
+                {
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    
+                    let context = appDelegate.persistentContainer.viewContext
+                    
+                    let password = NSEntityDescription.insertNewObject(forEntityName: "Password", into: context)
+                    let name = NSEntityDescription.insertNewObject(forEntityName: "Name", into: context)
+                    
+                    password.setValue(passwordTextField2.text, forKey: "password")
+                    name.setValue(nameTextField.text, forKey: "name")
+                    
+                    do
+                    {
+                        try context.save()
+                        print("saved")
+                    }
+                    catch
+                    {
+                        let alert2 = UIAlertController(title: "There was a error", message: "There was a error and the password couldn't be saved.", preferredStyle: .alert)
+                        let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+                        alert2.addAction(okButton)
+                        self.present(alert2, animated: true, completion: nil)
+                    }
+                    
+                    performSegue(withIdentifier: "gotUser", sender: self)
+                }
+                else
+                {
+                    let alert = UIAlertController(title: "Passwords don't match", message: "The passwords that you entered don't match, please try again.", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: self.clearBoxes)
+                    alert.addAction(okAction)
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        
         }
         else
         {
-            let alert = UIAlertController(title: "Passwords don't match", message: "The passwords that you entered don't match, please try again.", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: self.clearBoxes)
-            alert.addAction(okAction)
+            let alert = UIAlertController(title: "Fields Not Filled In Correctly", message: "Please make sure all the fields are filled in correctly", preferredStyle: .alert)
+            let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okButton)
             self.present(alert, animated: true, completion: nil)
         }
     }

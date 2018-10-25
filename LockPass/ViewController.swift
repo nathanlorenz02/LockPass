@@ -146,6 +146,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
                  touchIDOutlet.setTitle("Use Touch ID", for: .normal)
             }
         }
+        if UIDevice().userInterfaceIdiom == .pad {
+            switch UIScreen.main.nativeBounds.height
+            {
+                
+            default:
+                touchIDOutlet.setTitle("Use Touch ID", for: .normal)
+            }
+        }
         
         let context:LAContext = LAContext()
         
