@@ -15,8 +15,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
    
-    
-   
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBAction func loginButton(_ sender: Any)
@@ -44,7 +42,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     else
                     {
                         let alert = UIAlertController(title: "Incorrect Password", message: "The password you entered doesn't match our records, please try again.", preferredStyle: .alert)
-                        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: self.clearBoxes)
+                        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: self.clearBoxes)
                         alert.addAction(okAction)
                         
                         self.present(alert, animated: true, completion: nil)
@@ -60,7 +58,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         catch
         {
             let alert = UIAlertController(title: "There was a error", message: "We encounterd a error, please try again.", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+            let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
             alert.addAction(okAction)
             
             self.present(alert, animated: true, completion: nil)
@@ -117,7 +115,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(self.hideKeyboard))
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(self.hideKeyboard))
         toolbar.setItems([doneButton], animated: false)
         toolbar.isUserInteractionEnabled = true
         passwordTextField.inputAccessoryView = toolbar
@@ -140,6 +138,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
                  touchIDOutlet.setTitle("Use Touch ID", for: .normal)
             case 2436:
                  touchIDOutlet.setTitle("Use Face ID", for: .normal)
+            case 1792:
+                 touchIDOutlet.setTitle("Use Face ID", for: .normal)
+            case 2688:
+                touchIDOutlet.setTitle("Use Face ID", for: .normal)
             default:
                  touchIDOutlet.setTitle("Use Touch ID", for: .normal)
             }

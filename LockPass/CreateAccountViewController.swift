@@ -41,7 +41,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(self.hideKeyboard))
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(self.hideKeyboard))
         toolbar.setItems([doneButton], animated: false)
         toolbar.isUserInteractionEnabled = true
         passwordTextField1.inputAccessoryView = toolbar
@@ -88,7 +88,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         else
         {
             let alert = UIAlertController(title: "Passwords don't match", message: "The passwords that you entered don't match, please try again.", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: self.clearBoxes)
+            let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: self.clearBoxes)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
         }

@@ -342,9 +342,9 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     
     
     //Delete data
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
-        if editingStyle == UITableViewCellEditingStyle.delete
+        if editingStyle == UITableViewCell.EditingStyle.delete
         {
             
           
@@ -476,7 +476,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
         else
         {
             let alert = UIAlertController(title: "Passwords don't match", message: "The passwords that you entered don't match, please try again.", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: self.clearBoxes)
+            let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: self.clearBoxes)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
         }
@@ -515,8 +515,8 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     
     func showSendMailErrorAlert()
     {
-        let alert = UIAlertController(title: "Could not Send Mail", message: "Unable to send email. Please check your email configuration, and try again.", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        let alert = UIAlertController(title: "Could not Send Mail", message: "Unable to send email. Please check your email configuration, and try again.", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         
     }
