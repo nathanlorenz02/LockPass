@@ -301,6 +301,7 @@
                         <outlet property="infoButton" destination="e8l-al-J01" id="sym-33-4yB"/>
                         <outlet property="searchBar" destination="sY4-Pm-1zP" id="qpT-oE-kme"/>
                         <outlet property="tableView" destination="qEs-zG-S5h" id="fVO-UG-pyI"/>
+                        <outlet property="tableViewTopConstraint" destination="iPd-Ba-IAV" id="js7-x7-177"/>
                         <segue destination="CmY-fU-S7U" kind="presentation" identifier="showInfo" id="phK-VZ-scv"/>
                     </connections>
                 </viewController>

@@ -22,6 +22,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +50,17 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
         self.tableView.delegate = self
         self.tableView.dataSource = self
         searchBar.delegate = self
+        
+        if titlename.count == 0
+        {
+            searchBar.isHidden = true
+            tableViewTopConstraint.constant = 0
+        }
+        else
+        {
+            searchBar.isHidden = false
+            tableViewTopConstraint.constant = 56
+        }
         
        
         
@@ -235,7 +247,16 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
         }
         
        
-        
+        if titlename.count == 0
+        {
+            searchBar.isHidden = true
+            tableViewTopConstraint.constant = 0
+        }
+        if titlename.count > 0
+        {
+            searchBar.isHidden = false
+            tableViewTopConstraint.constant = 56
+        }
         self.tableView.reloadData()
     
     }
@@ -369,6 +390,16 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
                 print("Error: There was a error in deleteing")
             }
             
+            if titlename.count == 0
+            {
+                searchBar.isHidden = true
+                tableViewTopConstraint.constant = 0
+            }
+            if titlename.count > 0
+            {
+                searchBar.isHidden = false
+                tableViewTopConstraint.constant = 56
+            }
             tableView.reloadData()
             
             
