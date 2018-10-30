@@ -18,6 +18,7 @@ class ItemInfoViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var dismissButton: UIButton!
     
     
     var name = ""
@@ -30,13 +31,15 @@ class ItemInfoViewController: UIViewController {
     {
         super.viewDidLoad()
 
-        infoView.layer.cornerRadius = 5
+        infoView.layer.cornerRadius = 20
+        dismissButton.layer.cornerRadius = 5
         
-        nameLabel.text = name
-        emailLabel.text = email
-        passwordLabel.text = password
-        usernameLabel.text = username
+        nameLabel.text = "Your \(name) data"
+        emailLabel.text = "Email: \n\(email)"
+        passwordLabel.text = "Password: \(password)"
+        usernameLabel.text = "Username: \(username)"
         
+        emailLabel.lineBreakMode = .byWordWrapping
 
     }
 
