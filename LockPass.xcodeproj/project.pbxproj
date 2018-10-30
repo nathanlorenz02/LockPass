@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		43007F0E2064169600DC9035 /* ItemInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43007F0D2064169600DC9035 /* ItemInfoViewController.swift */; };
+		4339CD312188F06700C82480 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4339CD302188F06700C82480 /* SettingsViewController.swift */; };
 		43C2F8661FB63E27004E78FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C2F8651FB63E27004E78FE /* AppDelegate.swift */; };
 		43C2F8681FB63E27004E78FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C2F8671FB63E27004E78FE /* ViewController.swift */; };
 		43C2F86B1FB63E28004E78FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C2F8691FB63E28004E78FE /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		43007F0D2064169600DC9035 /* ItemInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoViewController.swift; sourceTree = "<group>"; };
+		4339CD302188F06700C82480 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		43B20FCE20BB510900A27173 /* LockPass.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LockPass.entitlements; sourceTree = "<group>"; };
 		43C2F8621FB63E27004E78FE /* LockPass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LockPass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C2F8651FB63E27004E78FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				43C2F8BA1FB64645004E78FE /* CreateAccountViewController.swift */,
 				43C2F8B81FB6416B004E78FE /* MainViewController.swift */,
 				43007F0D2064169600DC9035 /* ItemInfoViewController.swift */,
+				4339CD302188F06700C82480 /* SettingsViewController.swift */,
 				43C2F8691FB63E28004E78FE /* Main.storyboard */,
 				43C2F86F1FB63E28004E78FE /* Assets.xcassets */,
 				43C2F8711FB63E28004E78FE /* LaunchScreen.storyboard */,
@@ -283,6 +286,7 @@
 			files = (
 				43C2F8BB1FB64645004E78FE /* CreateAccountViewController.swift in Sources */,
 				43007F0E2064169600DC9035 /* ItemInfoViewController.swift in Sources */,
+				4339CD312188F06700C82480 /* SettingsViewController.swift in Sources */,
 				43C2F86E1FB63E28004E78FE /* LockPass.xcdatamodeld in Sources */,
 				43C2F8681FB63E27004E78FE /* ViewController.swift in Sources */,
 				43C2F8661FB63E27004E78FE /* AppDelegate.swift in Sources */,

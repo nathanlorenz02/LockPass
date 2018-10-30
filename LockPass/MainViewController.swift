@@ -28,21 +28,20 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
         super.viewDidLoad()
         
         if #available(iOS 11.0, *) {
-            self.navigationController?.navigationBar.prefersLargeTitles = true
-            
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         } else {
            
         }
         
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
-            if didAllow
-            {
+    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
+        if didAllow
+        {
                 
-            }
-            else
-            {
+        }
+        else
+        {
                 
-            }
+        }
             
         })
         
@@ -50,18 +49,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
         self.tableView.delegate = self
         self.tableView.dataSource = self
         searchBar.delegate = self
-        
-        if titlename.count == 0
-        {
-            searchBar.isHidden = true
-            tableViewTopConstraint.constant = 0
-        }
-        else
-        {
-            searchBar.isHidden = false
-            tableViewTopConstraint.constant = 56
-        }
-        
+        checkForSearchBar()
        
         
         //January 1 notification
@@ -137,6 +125,8 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
         {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
+        
+        checkForSearchBar()
     }
 
 
@@ -246,17 +236,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
             self.present(errorAlert, animated: true, completion: nil)
         }
         
-       
-        if titlename.count == 0
-        {
-            searchBar.isHidden = true
-            tableViewTopConstraint.constant = 0
-        }
-        if titlename.count > 0
-        {
-            searchBar.isHidden = false
-            tableViewTopConstraint.constant = 56
-        }
+        checkForSearchBar()
         self.tableView.reloadData()
     
     }
@@ -390,16 +370,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
                 print("Error: There was a error in deleteing")
             }
             
-            if titlename.count == 0
-            {
-                searchBar.isHidden = true
-                tableViewTopConstraint.constant = 0
-            }
-            if titlename.count > 0
-            {
-                searchBar.isHidden = false
-                tableViewTopConstraint.constant = 56
-            }
+            checkForSearchBar()
             tableView.reloadData()
             
             
@@ -408,118 +379,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
         }
     }
     
-
     
-    @IBOutlet weak var infoButton: UIBarButtonItem!
-    
-    // Info button
-    @IBAction func infoBt(_ sender: Any)
-    {
-        let infoAlert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
-        let changePasswordAction = UIAlertAction(title: "Change Password", style: .destructive, handler: self.changepassword)
-        let reportAProblem = UIAlertAction(title: "Report a Problem", style: .destructive, handler: self.reportAProblem)
-        let logout = UIAlertAction(title: "Log Out", style: .default, handler: self.logout)
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        infoAlert.addAction(changePasswordAction)
-        infoAlert.addAction(reportAProblem)
-        infoAlert.addAction(logout)
-        infoAlert.addAction(cancel)
-        self.present(infoAlert, animated: true, completion: nil)
-        
-    }
-    
-    //Functions for the info alert button
-    // Change password button function
-    
-    var passwordTextField1: UITextField!
-    var passwordTextField2: UITextField!
-    
-    func changepassword(alert: UIAlertAction!)
-    {
-        let passwordAlert = UIAlertController(title: "Change the Password", message: nil, preferredStyle: .alert)
-        passwordAlert.addTextField(configurationHandler: passwordTextField1)
-        passwordAlert.addTextField(configurationHandler: passwordTextField2)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: self.savePassword)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        passwordAlert.addAction(okAction)
-        passwordAlert.addAction(cancelAction)
-        self.present(passwordAlert, animated: true, completion: nil)
-    }
-    
-    //TextField function
-    func passwordTextField1(textField: UITextField!)
-    {
-        passwordTextField1 = textField
-        passwordTextField1.placeholder = "New Password"
-        passwordTextField1.isSecureTextEntry = true
-    }
-    func passwordTextField2(textField: UITextField!)
-    {
-        passwordTextField2 = textField
-        passwordTextField2.placeholder = "Re-Enter New Password"
-        passwordTextField2.isSecureTextEntry = true
-    }
-    
-    //Save Button function
-    func savePassword(alert: UIAlertAction!)
-    {
-        if passwordTextField1.text == passwordTextField2.text
-        {
-           let delegate = UIApplication.shared.delegate as! AppDelegate
-            let context2 = delegate.persistentContainer.viewContext
-            let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Password")
-            let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
-            
-        
-            do
-            {
-                try context2.execute(deleteRequest)
-                try context2.save()
-                print("deleted")
-            }
-            catch
-            {
-                let alert2 = UIAlertController(title: "There was a error", message: "There was a error and the password couldn't be saved, please try again.", preferredStyle: .alert)
-                let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert2.addAction(okButton)
-                self.present(alert2, animated: true, completion: nil)
-            }
-            
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
-            let password = NSEntityDescription.insertNewObject(forEntityName: "Password", into: context)
-            password.setValue(passwordTextField2.text, forKey: "password")
-            
-            do
-            {
-                try context.save()
-                print("saved")
-            }
-            catch
-            {
-                let alert2 = UIAlertController(title: "There was a error", message: "There was a error and the password couldn't be saved, please try again.", preferredStyle: .alert)
-                let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert2.addAction(okButton)
-                self.present(alert2, animated: true, completion: nil)
-            }
-            
-        }
-        else
-        {
-            let alert = UIAlertController(title: "Passwords don't match", message: "The passwords that you entered don't match, please try again.", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: self.clearBoxes)
-            alert.addAction(okAction)
-            self.present(alert, animated: true, completion: nil)
-        }
-        
-    }
-    
-    
-    func clearBoxes(alert: UIAlertAction!)
-    {
-        passwordTextField1.text = ""
-        passwordTextField2.text = ""
-    }
     
    
    
@@ -530,64 +390,22 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
 
     }
     
-    func configuredMailComposeViewController() -> MFMailComposeViewController
-    {
-        let systemVersion = UIDevice.current.systemVersion
-        let mailComposeVC = MFMailComposeViewController()
-        mailComposeVC.mailComposeDelegate = self
-        
-        
-        mailComposeVC.setToRecipients(["allswiftdeveloper@gmail.com"])
-        mailComposeVC.setSubject("Reported Problem - Lock Pass")
-        mailComposeVC.setMessageBody("System Information\n\n iOS \(systemVersion) \n Version 1.0.0 \n\n Hi Team!\n\n", isHTML: false)
-        
-        return mailComposeVC
-    }
     
-    func showSendMailErrorAlert()
+    func checkForSearchBar()
     {
-        let alert = UIAlertController(title: "Could not Send Mail", message: "Unable to send email. Please check your email configuration, and try again.", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-        
-    }
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?)
-    {
-        switch result {
-        case MFMailComposeResult.cancelled:
-            self.dismiss(animated: true, completion: nil)
-        case MFMailComposeResult.failed:
-            self.showSendMailErrorAlert()
-            self.dismiss(animated: true, completion: nil)
-        case MFMailComposeResult.sent:
-            self.dismiss(animated: true, completion: nil)
-        default:
-            break
-        }
-    }
-    
-    
-    //Report a problem function
-    func reportAProblem(alert: UIAlertAction!)
-    {
-        let mailComposeViewController = configuredMailComposeViewController()
-        
-        if MFMailComposeViewController.canSendMail()
+        if titlename.count == 0
         {
-            self.present(mailComposeViewController, animated: true)
+            searchBar.isHidden = true
+            tableViewTopConstraint.constant = 0
         }
         else
         {
-            self.showSendMailErrorAlert()
+            searchBar.isHidden = false
+            tableViewTopConstraint.constant = 56
         }
+        
     }
     
-    
-    
-    
-
-
 }
 
 extension MainViewController: UITableViewDataSource {

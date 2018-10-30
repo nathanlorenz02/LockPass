@@ -240,6 +240,79 @@
             </objects>
             <point key="canvasLocation" x="121.875" y="779.57746478873241"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="HoN-yc-g9r">
+            <objects>
+                <viewController modalTransitionStyle="flipHorizontal" id="IH8-6S-cSC" customClass="SettingsViewController" customModule="LockPass" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oZY-He-HAq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2a-dD-7H5">
+                                <rect key="frame" x="16" y="511" width="288" height="37"/>
+                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="u6S-cw-ctt"/>
+                                </constraints>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="logOut:" destination="IH8-6S-cSC" eventType="touchUpInside" id="ZYB-fH-Ak6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYs-vg-pV0">
+                                <rect key="frame" x="16" y="96" width="288" height="37"/>
+                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="aGa-xL-dW9"/>
+                                </constraints>
+                                <state key="normal" title="Change Password">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="changePassword:" destination="IH8-6S-cSC" eventType="touchUpInside" id="wuA-Sy-N0I"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfY-wD-6HG">
+                                <rect key="frame" x="16" y="160" width="288" height="37"/>
+                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="S9s-gP-ULM"/>
+                                </constraints>
+                                <state key="normal" title="Report A Problem">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="reportAProblem:" destination="IH8-6S-cSC" eventType="touchUpInside" id="fCv-ej-FNk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="APB-1V-6VN" firstAttribute="bottom" secondItem="T2a-dD-7H5" secondAttribute="bottom" constant="20" id="10y-xJ-X1Y"/>
+                            <constraint firstItem="TYs-vg-pV0" firstAttribute="leading" secondItem="APB-1V-6VN" secondAttribute="leading" constant="16" id="1rZ-2V-zwJ"/>
+                            <constraint firstItem="APB-1V-6VN" firstAttribute="trailing" secondItem="xfY-wD-6HG" secondAttribute="trailing" constant="16" id="5yz-ZF-PZH"/>
+                            <constraint firstItem="TYs-vg-pV0" firstAttribute="top" secondItem="APB-1V-6VN" secondAttribute="top" constant="32" id="E7o-df-55j"/>
+                            <constraint firstItem="xfY-wD-6HG" firstAttribute="leading" secondItem="APB-1V-6VN" secondAttribute="leading" constant="16" id="LUm-3J-IQs"/>
+                            <constraint firstItem="APB-1V-6VN" firstAttribute="trailing" secondItem="T2a-dD-7H5" secondAttribute="trailing" constant="16" id="SfF-sJ-EMH"/>
+                            <constraint firstItem="APB-1V-6VN" firstAttribute="trailing" secondItem="TYs-vg-pV0" secondAttribute="trailing" constant="16" id="WDJ-Pp-hqC"/>
+                            <constraint firstItem="T2a-dD-7H5" firstAttribute="leading" secondItem="APB-1V-6VN" secondAttribute="leading" constant="16" id="d5T-hQ-Aty"/>
+                            <constraint firstItem="xfY-wD-6HG" firstAttribute="top" secondItem="TYs-vg-pV0" secondAttribute="bottom" constant="27" id="y6B-Mo-tOw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="APB-1V-6VN"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="4na-YI-gFu"/>
+                    <connections>
+                        <outlet property="changePasswordButton" destination="TYs-vg-pV0" id="0uE-0z-4oj"/>
+                        <outlet property="logOutButton" destination="T2a-dD-7H5" id="h9g-YD-R8Q"/>
+                        <outlet property="reportAProblemButton" destination="xfY-wD-6HG" id="A57-TK-Ik5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Uo-b5-W9Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1845" y="-648.5915492957746"/>
+        </scene>
         <!--Home-->
         <scene sceneID="hId-Xy-iIM">
             <objects>
@@ -267,6 +340,7 @@
                             </tableView>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sY4-Pm-1zP">
                                 <rect key="frame" x="0.0" y="64" width="320" height="56"/>
+                                <color key="barTintColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
                                     <string>Title</string>
@@ -294,12 +368,11 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="organize" id="e8l-al-J01">
                             <connections>
-                                <action selector="infoBt:" destination="HVp-Yg-5at" id="rTf-Mx-mA8"/>
+                                <segue destination="IH8-6S-cSC" kind="show" id="VN6-77-DDq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="infoButton" destination="e8l-al-J01" id="sym-33-4yB"/>
                         <outlet property="searchBar" destination="sY4-Pm-1zP" id="qpT-oE-kme"/>
                         <outlet property="tableView" destination="qEs-zG-S5h" id="fVO-UG-pyI"/>
                         <outlet property="tableViewTopConstraint" destination="iPd-Ba-IAV" id="js7-x7-177"/>
