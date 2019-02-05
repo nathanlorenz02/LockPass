@@ -77,18 +77,19 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                     
                     let password = NSEntityDescription.insertNewObject(forEntityName: "Password", into: context)
                     let name = NSEntityDescription.insertNewObject(forEntityName: "Name", into: context)
+                    let prioritizeAuth = NSEntityDescription.insertNewObject(forEntityName: "AuthPriority", into: context)
                     
                     password.setValue(passwordTextField2.text, forKey: "password")
                     name.setValue(nameTextField.text, forKey: "name")
+                    prioritizeAuth.setValue(false, forKey: "authPriority")
                     
                     do
                     {
                         try context.save()
-                        print("saved")
                     }
                     catch
                     {
-                        let alert2 = UIAlertController(title: "There was a error", message: "There was a error and the password couldn't be saved.", preferredStyle: .alert)
+                        let alert2 = UIAlertController(title: "There was a error", message: "There was a error and the password or other data couldn't be saved.", preferredStyle: .alert)
                         let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
                         alert2.addAction(okButton)
                         self.present(alert2, animated: true, completion: nil)

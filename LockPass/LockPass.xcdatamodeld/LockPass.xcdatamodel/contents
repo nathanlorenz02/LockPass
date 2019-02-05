@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13241" systemVersion="17B1003" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18D42" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AuthPriority" representedClassName="AuthPriority" syncable="YES" codeGenerationType="class">
+        <attribute name="authPriority" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <entity name="Email" representedClassName="Email" syncable="YES" codeGenerationType="class">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -21,9 +24,10 @@
     <elements>
         <element name="Email" positionX="-63" positionY="18" width="128" height="60"/>
         <element name="Items" positionX="-63" positionY="-9" width="128" height="60"/>
+        <element name="Name" positionX="-45" positionY="18" width="128" height="60"/>
         <element name="Password" positionX="-63" positionY="-18" width="128" height="60"/>
         <element name="PasswordText" positionX="-54" positionY="27" width="128" height="60"/>
         <element name="Username" positionX="-36" positionY="36" width="128" height="60"/>
-        <element name="Name" positionX="-45" positionY="18" width="128" height="60"/>
+        <element name="AuthPriority" positionX="-45" positionY="18" width="128" height="60"/>
     </elements>
 </model>

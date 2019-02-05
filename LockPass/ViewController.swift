@@ -69,6 +69,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func touchIDLogin(_ sender: Any)
     {
+       performBiometricsAuth()
+    }
+    
+    func performBiometricsAuth()
+    {
         let context:LAContext = LAContext()
         
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
@@ -94,7 +99,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    
     func clearBoxes(alert: UIAlertAction!)
     {
         passwordTextField.text = ""
@@ -110,6 +114,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         
         let toolbar = UIToolbar()
@@ -168,7 +174,48 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
        
     }
-
+    
+    @objc func authTimer()
+    {
+        performBiometricsAuth()
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(true)
+        
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "AuthPriority")
+        request.returnsObjectsAsFaults = false
+        do
+        {
+            let results = try context.fetch(request)
+            for result in results as! [NSManagedObject]
+            {
+                if let theAuthPriority = result.value(forKey: "authPriority") as? Bool
+                {
+                    if theAuthPriority == true
+                    {
+                        //Request Authentication
+                        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.authTimer), userInfo: nil, repeats: false)
+                    }
+                    else
+                    {
+                        //Do nothing
+                    }
+                }
+            }
+        }
+        catch
+        {
+            print("Unable to return authentication priority")
+        }
+    }
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

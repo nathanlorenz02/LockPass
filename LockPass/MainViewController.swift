@@ -16,11 +16,10 @@ var emailname: [NSManagedObject] = []
 var passwordname: [NSManagedObject] = []
 var username: [NSManagedObject] = []
 
-class MainViewController: UIViewController, MFMailComposeViewControllerDelegate, UITextFieldDelegate, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate {
+class MainViewController: UIViewController, MFMailComposeViewControllerDelegate, UITextFieldDelegate, UITableViewDelegate {
     
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
     
@@ -48,8 +47,6 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        searchBar.delegate = self
-        checkForSearchBar()
        
         
         //January 1 notification
@@ -97,36 +94,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     {
         super.viewWillAppear(animated)
         
-        guard let appDelegate =
-            UIApplication.shared.delegate as? AppDelegate else {
-                return
-        }
-        
-        let managedContext =
-            appDelegate.persistentContainer.viewContext
-        let fetchRequest =
-            NSFetchRequest<NSManagedObject>(entityName: "Items")
-        let fetchRequest2 =
-            NSFetchRequest<NSManagedObject>(entityName: "Email")
-        let fetchRequest3 =
-            NSFetchRequest<NSManagedObject>(entityName: "PasswordText")
-        let fetchRequest4 =
-            NSFetchRequest<NSManagedObject>(entityName: "Username")
-
-        do
-        {
-            titlename = try managedContext.fetch(fetchRequest)
-            emailname = try managedContext.fetch(fetchRequest2)
-            passwordname = try managedContext.fetch(fetchRequest3)
-            username = try managedContext.fetch(fetchRequest4)
-           
-        }
-        catch let error as NSError
-        {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
-        
-        checkForSearchBar()
+        loadAllTableData()
     }
 
 
@@ -146,6 +114,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     {
         nameTextField = textfield
         nameTextField.placeholder = "Item Name (i.e. Facebook)"
+        nameTextField.autocapitalizationType = .words
     }
     func emailTextField(textfield: UITextField!)
     {
@@ -189,34 +158,19 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     func save(alert: UIAlertAction!)
     {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
         let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let entity = NSEntityDescription.entity(forEntityName: "Items",
-                                                in: managedContext)!
-        
-        let entity2 = NSEntityDescription.entity(forEntityName: "Email",
-                                                in: managedContext)!
-        
-        let entity3 = NSEntityDescription.entity(forEntityName: "PasswordText",
-                                                in: managedContext)!
-        
-        let entity4 = NSEntityDescription.entity(forEntityName: "Username",
-                                                in: managedContext)!
-        
-        let theName = NSManagedObject(entity: entity,
-                                     insertInto: managedContext)
+        let entity = NSEntityDescription.entity(forEntityName: "Items", in: managedContext)!
+        let entity2 = NSEntityDescription.entity(forEntityName: "Email", in: managedContext)!
+        let entity3 = NSEntityDescription.entity(forEntityName: "PasswordText", in: managedContext)!
+        let entity4 = NSEntityDescription.entity(forEntityName: "Username", in: managedContext)!
+        let theName = NSManagedObject(entity: entity, insertInto: managedContext)
         let theEmail = NSManagedObject(entity: entity2, insertInto: managedContext)
-        
         let thePassword = NSManagedObject(entity: entity3, insertInto: managedContext)
-        
         let theUsername = NSManagedObject(entity: entity4, insertInto: managedContext)
-        
         theName.setValue(nameTextField.text, forKeyPath: "name")
         theEmail.setValue(emailTextField.text, forKey: "email")
         thePassword.setValue(passwordTextField.text, forKey: "password")
         theUsername.setValue(userNameTextField.text, forKey: "username")
-        
         do
         {
             try managedContext.save()
@@ -224,84 +178,55 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
             emailname.append(theEmail)
             passwordname.append(thePassword)
             username.append(theUsername)
-            print("saved")
-            
             
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
-            
             let errorAlert = UIAlertController(title: "There was a error", message: "There was a error in trying to save your info, please try again", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             errorAlert.addAction(okAction)
             self.present(errorAlert, animated: true, completion: nil)
         }
         
-        checkForSearchBar()
         self.tableView.reloadData()
     
     }
     
     
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)
+    func loadAllTableData()
     {
-        if searchText != ""
-        {
-            var predicate: NSPredicate = NSPredicate()
-            predicate = NSPredicate(format: "name contains[c]'\(searchText)'")
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Items")
-            fetchRequest.predicate = predicate
-            do
-            {
-                titlename = try context.fetch(fetchRequest) as! [NSManagedObject]
-            }
-            catch
-            {
-                print("Could not get search data")
-            }
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return
         }
-        else
+        
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "Items")
+        let fetchRequest2 =
+            NSFetchRequest<NSManagedObject>(entityName: "Email")
+        let fetchRequest3 =
+            NSFetchRequest<NSManagedObject>(entityName: "PasswordText")
+        let fetchRequest4 =
+            NSFetchRequest<NSManagedObject>(entityName: "Username")
+        
+        do
         {
-            searchBar.resignFirstResponder()
+            titlename = try managedContext.fetch(fetchRequest)
+            emailname = try managedContext.fetch(fetchRequest2)
+            passwordname = try managedContext.fetch(fetchRequest3)
+            username = try managedContext.fetch(fetchRequest4)
             
-            guard let appDelegate =
-                UIApplication.shared.delegate as? AppDelegate else {
-                    return
-            }
-            
-            let managedContext =
-                appDelegate.persistentContainer.viewContext
-            let fetchRequest =
-                NSFetchRequest<NSManagedObject>(entityName: "Items")
-            let fetchRequest2 =
-                NSFetchRequest<NSManagedObject>(entityName: "Email")
-            let fetchRequest3 =
-                NSFetchRequest<NSManagedObject>(entityName: "PasswordText")
-            let fetchRequest4 =
-                NSFetchRequest<NSManagedObject>(entityName: "Username")
-            
-            do
-            {
-                titlename = try managedContext.fetch(fetchRequest)
-                emailname = try managedContext.fetch(fetchRequest2)
-                passwordname = try managedContext.fetch(fetchRequest3)
-                username = try managedContext.fetch(fetchRequest4)
-                
-            }
-            catch
-            {
-                print("Could not reload data")
-            }
+        }
+        catch let error as NSError
+        {
+            print("Could not fetch. \(error), \(error.userInfo)")
         }
         tableView.reloadData()
     }
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar)
-    {
-        searchBar.resignFirstResponder()
-    }
+    
+    
     
     
     
@@ -369,20 +294,11 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
             {
                 print("Error: There was a error in deleteing")
             }
-            
-            checkForSearchBar()
+
             tableView.reloadData()
-            
-            
-            
-            
         }
     }
     
-    
-    
-   
-   
     //Logout button function
     func logout(alert: UIAlertAction!)
     {
@@ -391,20 +307,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     }
     
     
-    func checkForSearchBar()
-    {
-        if titlename.count == 0
-        {
-            searchBar.isHidden = true
-            tableViewTopConstraint.constant = 0
-        }
-        else
-        {
-            searchBar.isHidden = false
-            tableViewTopConstraint.constant = 56
-        }
-        
-    }
+    
     
 }
 
@@ -412,17 +315,14 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return titlename.count
+       return titlename.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let name = titlename[indexPath.row]
-        let cell =
-            tableView.dequeueReusableCell(withIdentifier: "cell",
-                                          for: indexPath)
-        cell.textLabel?.text =
-            name.value(forKeyPath: "name") as? String
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = name.value(forKeyPath: "name") as? String
         return cell
         
     }

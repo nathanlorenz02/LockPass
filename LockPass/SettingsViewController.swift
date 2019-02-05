@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import MessageUI
+import LocalAuthentication
 
 class SettingsViewController: UIViewController, MFMailComposeViewControllerDelegate, UITextFieldDelegate {
     
@@ -16,6 +17,9 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     @IBOutlet weak var changePasswordButton: UIButton!
     @IBOutlet weak var reportAProblemButton: UIButton!
     @IBOutlet weak var logOutButton: UIButton!
+    @IBOutlet weak var prioritizeAuthSwitch: UISwitch!
+    @IBOutlet weak var prioritizeAuthLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +32,11 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
             
         }
 
-        changePasswordButton.layer.cornerRadius = 5
-        reportAProblemButton.layer.cornerRadius = 5
-        logOutButton.layer.cornerRadius = 5
+        changePasswordButton.layer.cornerRadius = 7
+        reportAProblemButton.layer.cornerRadius = 7
+        logOutButton.layer.cornerRadius = 7
+        
+        checkforFaceORTouchID()
        
     }
     
@@ -79,7 +85,6 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
             {
                 try context2.execute(deleteRequest)
                 try context2.save()
-                print("deleted")
             }
             catch
             {
@@ -97,7 +102,6 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
             do
             {
                 try context.save()
-                print("saved")
             }
             catch
             {
@@ -177,14 +181,137 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
         }
     }
     
-    
-    
-    
-    @IBAction func logOut(_ sender: UIButton)
+    func checkforFaceORTouchID()
     {
+        if UIDevice().userInterfaceIdiom == .phone {
+            switch UIScreen.main.nativeBounds.height {
+            case 1136:
+                prioritizeAuthLabel.text = "Prioritize Touch ID"
+            case 1334:
+                prioritizeAuthLabel.text = "Prioritize Touch ID"
+            case 2208:
+                prioritizeAuthLabel.text = "Prioritize Touch ID"
+            case 2436:
+                prioritizeAuthLabel.text = "Prioritize Face ID"
+            case 1792:
+                prioritizeAuthLabel.text = "Prioritize Face ID"
+            case 2688:
+                prioritizeAuthLabel.text = "Prioritize Face ID"
+            default:
+                prioritizeAuthLabel.text = "Prioritize Face ID"
+            }
+        }
+        if UIDevice().userInterfaceIdiom == .pad {
+            switch UIScreen.main.nativeBounds.height
+            {
+            case 2388:
+                prioritizeAuthLabel.text = "Prioritize Face ID"
+            case 2732:
+                prioritizeAuthLabel.text = "Prioritize Face ID"
+            default:
+                prioritizeAuthLabel.text = "Prioritize Touch ID"
+            }
+        }
+        
+        let context:LAContext = LAContext()
+        
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
+        {
+            prioritizeAuthSwitch.isHidden = false
+            prioritizeAuthLabel.isHidden = false
+        }
+        else
+        {
+           prioritizeAuthSwitch.isHidden = true
+           prioritizeAuthLabel.isHidden = true
+        }
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let checkContext = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "AuthPriority")
+        request.returnsObjectsAsFaults = false
+        do
+        {
+            let results = try checkContext.fetch(request)
+            for result in results as! [NSManagedObject]
+            {
+                if let theAuthPriority = result.value(forKey: "authPriority") as? Bool
+                {
+                    if theAuthPriority == true
+                    {
+                        prioritizeAuthSwitch.isOn = true
+                    }
+                    else
+                    {
+                        prioritizeAuthSwitch.isOn = false
+                    }
+                }
+            }
+        }
+        catch
+        {
+            print("Unable to return authentication priority")
+        }
+        
         
     }
     
+    
+    @IBAction func priorityAuthChange(_ sender: Any)
+    {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        if prioritizeAuthSwitch.isOn == true
+        {
+            let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "AuthPriority")
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+            do
+            {
+                try context.execute(deleteRequest)
+                try context.save()
+            }
+            catch
+            {
+                print("Unable to delete auth priority request")
+            }
+            let prioritizeAuth = NSEntityDescription.insertNewObject(forEntityName: "AuthPriority", into: context)
+            prioritizeAuth.setValue(true, forKey: "authPriority")
+            do
+            {
+                try context.save()
+            }
+            catch
+            {
+                print("Unable to save auth priority request")
+            }
+        }
+        else
+        {
+            let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "AuthPriority")
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+            do
+            {
+                try context.execute(deleteRequest)
+                try context.save()
+            }
+            catch
+            {
+                print("Unable to delete auth priority request")
+            }
+            let prioritizeAuth = NSEntityDescription.insertNewObject(forEntityName: "AuthPriority", into: context)
+            prioritizeAuth.setValue(false, forKey: "authPriority")
+            do
+            {
+                try context.save()
+            }
+            catch
+            {
+                print("Unable to save auth priority request")
+            }
+        }
+    }
+    
+ 
 
   
 
