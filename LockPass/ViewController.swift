@@ -13,23 +13,19 @@ import LocalAuthentication
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
-    
+    var timer: Timer?
    
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBAction func loginButton(_ sender: Any)
     {
+        timer?.invalidate()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
         let context = appDelegate.persistentContainer.viewContext
-        
         let request = NSFetchRequest<NSFetchRequestResult> (entityName: "Password")
-        
         request.returnsObjectsAsFaults = false
-        
         do
         {
-            
             let results = try context.fetch(request)
             for result in results as! [NSManagedObject]
             {
@@ -48,37 +44,32 @@ class ViewController: UIViewController, UITextFieldDelegate {
                         self.present(alert, animated: true, completion: nil)
 
                     }
-                   
-                    
                 }
-                
             }
-            
         }
         catch
         {
             let alert = UIAlertController(title: "There was a error", message: "We encounterd a error, please try again.", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
             alert.addAction(okAction)
-            
             self.present(alert, animated: true, completion: nil)
         }
-        
-        
     }
     
     @IBAction func touchIDLogin(_ sender: Any)
     {
+       timer?.invalidate()
        performBiometricsAuth()
     }
     
     func performBiometricsAuth()
     {
+        
         let context:LAContext = LAContext()
         
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
         {
-            context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Use Touch ID to login", reply: { (wasSuccess, error) in
+            context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Use Touch ID/Face ID to login", reply: { (wasSuccess, error) in
                 if wasSuccess
                 {
                     self.performSegue(withIdentifier: "loggedIn", sender: self)
@@ -175,6 +166,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
        
     }
     
+    
     @objc func authTimer()
     {
         performBiometricsAuth()
@@ -199,7 +191,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     if theAuthPriority == true
                     {
                         //Request Authentication
-                        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.authTimer), userInfo: nil, repeats: false)
+                        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.authTimer), userInfo: nil, repeats: false)
                     }
                     else
                     {

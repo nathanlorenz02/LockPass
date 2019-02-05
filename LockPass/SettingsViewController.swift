@@ -43,20 +43,58 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     
     @IBAction func changePassword(_ sender: UIButton)
     {
-        let passwordAlert = UIAlertController(title: "Change the Password", message: nil, preferredStyle: .alert)
-        passwordAlert.addTextField(configurationHandler: passwordTextField1)
-        passwordAlert.addTextField(configurationHandler: passwordTextField2)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: self.savePassword)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        passwordAlert.addAction(okAction)
-        passwordAlert.addAction(cancelAction)
-        self.present(passwordAlert, animated: true, completion: nil)
+        let context:LAContext = LAContext()
+        
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
+        {
+            context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Use Touch ID/Face ID to login", reply: { (wasSuccess, error) in
+                if wasSuccess
+                {
+                    let passwordAlert = UIAlertController(title: "Change the Password", message: nil, preferredStyle: .alert)
+                    passwordAlert.addTextField(configurationHandler: self.passwordTextField1)
+                    passwordAlert.addTextField(configurationHandler: self.passwordTextField2)
+                    let okAction = UIAlertAction(title: "OK", style: .default, handler: self.savePassword)
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                    passwordAlert.addAction(okAction)
+                    passwordAlert.addAction(cancelAction)
+                    self.present(passwordAlert, animated: true, completion: nil)
+                    
+                }
+                else
+                {
+                    let passwordAlert = UIAlertController(title: "Enter The Old Password", message: nil, preferredStyle: .alert)
+                    passwordAlert.addTextField(configurationHandler: self.oldPasswordTextField)
+                    let okAction = UIAlertAction(title: "OK", style: .default, handler: self.checkOldPassword)
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                    passwordAlert.addAction(okAction)
+                    passwordAlert.addAction(cancelAction)
+                    self.present(passwordAlert, animated: true, completion: nil)
+                }
+            })
+        }
+        else
+        {
+            let passwordAlert = UIAlertController(title: "Enter The Old Password", message: nil, preferredStyle: .alert)
+            passwordAlert.addTextField(configurationHandler: self.oldPasswordTextField)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: self.checkOldPassword)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            passwordAlert.addAction(okAction)
+            passwordAlert.addAction(cancelAction)
+            self.present(passwordAlert, animated: true, completion: nil)
+        }
     }
     
+    var oldPasswordTextField: UITextField!
     var passwordTextField1: UITextField!
     var passwordTextField2: UITextField!
     
     //TextField function
+    func oldPasswordTextField(textfield: UITextField!)
+    {
+        oldPasswordTextField = textfield
+        oldPasswordTextField.placeholder = "Old Password"
+        oldPasswordTextField.isSecureTextEntry = true
+    }
     func passwordTextField1(textField: UITextField!)
     {
         passwordTextField1 = textField
@@ -71,6 +109,47 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     }
     
     //Save Button function
+    
+    
+    func checkOldPassword(alert: UIAlertAction!)
+    {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let oldPassFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Password")
+        do
+        {
+            let results = try context.fetch(oldPassFetch)
+            for result in results as! [NSManagedObject]
+            {
+                if let theOldPassword = result.value(forKey: "password") as? String
+                {
+                    if oldPasswordTextField.text == theOldPassword
+                    {
+                        let passwordAlert = UIAlertController(title: "Change the Password", message: nil, preferredStyle: .alert)
+                        passwordAlert.addTextField(configurationHandler: self.passwordTextField1)
+                        passwordAlert.addTextField(configurationHandler: self.passwordTextField2)
+                        let okAction = UIAlertAction(title: "OK", style: .default, handler: self.savePassword)
+                        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                        passwordAlert.addAction(okAction)
+                        passwordAlert.addAction(cancelAction)
+                        self.present(passwordAlert, animated: true, completion: nil)
+                    }
+                    else
+                    {
+                        let alert = UIAlertController(title: "Password doesn't match", message: "The password that you entered doesn't match, please try again.", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: self.clearBoxes)
+                        alert.addAction(okAction)
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+            }
+        }
+        catch
+        {
+            print("Unable to get old password")
+        }
+    }
+        
     func savePassword(alert: UIAlertAction!)
     {
         if passwordTextField1.text == passwordTextField2.text
