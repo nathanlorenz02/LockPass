@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,12 +18,12 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CCx-ul-uKo">
                                 <rect key="frame" x="18.666666666666657" y="470" width="337.66666666666674" height="35"/>
-                                <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.56470588239999997" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="t1w-Fi-fHW"/>
                                 </constraints>
                                 <state key="normal" title="Sign In">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MrJ-Is-y4k"/>
@@ -33,12 +31,12 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Bn-Qm-feH">
                                 <rect key="frame" x="18.666666666666657" y="521" width="337.66666666666674" height="35"/>
-                                <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.56470588239999997" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="U9C-cj-Vbn"/>
                                 </constraints>
                                 <state key="normal" title="Use Touch ID">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
                                     <action selector="touchIDLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="niq-r8-C20"/>
@@ -49,22 +47,32 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vy6-PW-0eQ">
                                         <rect key="frame" x="8" y="8" width="321.66666666666669" height="30"/>
-                                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="ej4-th-gYE"/>
                                         </constraints>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.0" green="0.56470588239999997" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                     </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yL-lE-Em9">
+                                        <rect key="frame" x="-1" y="42" width="339.66666666666669" height="1"/>
+                                        <color key="backgroundColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="o34-Rd-Ev9"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstItem="0yL-lE-Em9" firstAttribute="leading" secondItem="3ko-71-Nv5" secondAttribute="leading" constant="-1" id="4E3-ba-Myg"/>
                                     <constraint firstItem="vy6-PW-0eQ" firstAttribute="top" secondItem="3ko-71-Nv5" secondAttribute="top" constant="8" id="6a3-Sp-Q2J"/>
-                                    <constraint firstItem="vy6-PW-0eQ" firstAttribute="leading" secondItem="3ko-71-Nv5" secondAttribute="leading" constant="8" id="AIa-GX-nyO"/>
-                                    <constraint firstAttribute="trailing" secondItem="vy6-PW-0eQ" secondAttribute="trailing" constant="8" id="BGw-ll-857"/>
+                                    <constraint firstItem="vy6-PW-0eQ" firstAttribute="centerX" secondItem="3ko-71-Nv5" secondAttribute="centerX" id="RC7-bt-8fX"/>
                                     <constraint firstAttribute="height" constant="46" id="SOM-w5-tb2"/>
+                                    <constraint firstItem="0yL-lE-Em9" firstAttribute="centerX" secondItem="vy6-PW-0eQ" secondAttribute="centerX" id="ZXE-Op-OkP"/>
+                                    <constraint firstItem="0yL-lE-Em9" firstAttribute="top" secondItem="vy6-PW-0eQ" secondAttribute="bottom" constant="4" id="fa9-kR-uY0"/>
                                     <constraint firstAttribute="bottom" secondItem="vy6-PW-0eQ" secondAttribute="bottom" constant="8" id="o3Y-yc-aos"/>
+                                    <constraint firstItem="vy6-PW-0eQ" firstAttribute="leading" secondItem="3ko-71-Nv5" secondAttribute="leadingMargin" id="ydn-7i-XcD"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LockPass" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ljr-Id-Syb">
@@ -84,7 +92,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.56470588235294117" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="KdB-gV-Dgj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="3Ce-BM-7oo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KdB-gV-Dgj" secondAttribute="trailing" id="6be-dM-Jur"/>
@@ -108,18 +116,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="uUS-3O-EzF"/>
                     <connections>
                         <outlet property="passwordTextField" destination="vy6-PW-0eQ" id="gjw-aH-ByK"/>
                         <outlet property="passwordView" destination="3ko-71-Nv5" id="xnd-uR-I46"/>
                         <outlet property="signInOutlet" destination="CCx-ul-uKo" id="QdF-Or-JPm"/>
                         <outlet property="touchIDOutlet" destination="3Bn-Qm-feH" id="cK0-Hb-wsV"/>
                         <outlet property="welcomeLabel" destination="KdB-gV-Dgj" id="hA8-O8-gmb"/>
-                        <segue destination="J8M-J2-c4n" kind="show" identifier="loggedIn" id="QpY-Fc-Clr"/>
+                        <segue destination="J8M-J2-c4n" kind="presentation" identifier="loggedIn" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="QpY-Fc-Clr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="121.875" y="29.577464788732396"/>
+            <point key="canvasLocation" x="120.8" y="29.55665024630542"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="q2M-h3-sNG">
@@ -134,19 +143,21 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4Uf-xy-aZr">
                                         <rect key="frame" x="8" y="45" width="321.66666666666669" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="dDM-8p-Pcq"/>
                                         </constraints>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.0" green="0.56470588239999997" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-Enter Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="jx3-mf-H3t">
-                                        <rect key="frame" x="8" y="84" width="321.66666666666669" height="30"/>
+                                        <rect key="frame" x="8" y="83" width="321.66666666666669" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="9cf-Jn-6xT"/>
                                         </constraints>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.0" green="0.56470588239999997" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                     </textField>
@@ -166,15 +177,16 @@
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="PlO-7z-rUg">
                                         <rect key="frame" x="8" y="5" width="321.66666666666669" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="OQy-GI-nvM"/>
                                         </constraints>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.0" green="0.56470588239999997" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="PlO-7z-rUg" secondAttribute="trailing" constant="8" id="4AR-3O-4dk"/>
                                     <constraint firstItem="PlO-7z-rUg" firstAttribute="leading" secondItem="FT9-uy-OLe" secondAttribute="leading" constant="8" id="5V2-Zr-aRJ"/>
@@ -189,7 +201,7 @@
                                     <constraint firstAttribute="trailing" secondItem="4Uf-xy-aZr" secondAttribute="trailing" constant="8" id="Wca-lk-djj"/>
                                     <constraint firstItem="HAe-6J-zMw" firstAttribute="leading" secondItem="FT9-uy-OLe" secondAttribute="leading" id="bkL-xn-yKX"/>
                                     <constraint firstAttribute="trailing" secondItem="jx3-mf-H3t" secondAttribute="trailing" constant="8" id="cOH-fq-DCu"/>
-                                    <constraint firstItem="jx3-mf-H3t" firstAttribute="top" secondItem="HAe-6J-zMw" secondAttribute="bottom" constant="5" id="fAF-7J-5Lb"/>
+                                    <constraint firstItem="jx3-mf-H3t" firstAttribute="top" secondItem="HAe-6J-zMw" secondAttribute="bottom" constant="4" id="fAF-7J-5Lb"/>
                                     <constraint firstAttribute="height" constant="120" id="gH7-Ic-wmN"/>
                                     <constraint firstItem="Ajk-n1-Nmy" firstAttribute="leading" secondItem="FT9-uy-OLe" secondAttribute="leading" id="tDo-mJ-RhA"/>
                                 </constraints>
@@ -197,12 +209,12 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbR-c6-pzi">
                                 <rect key="frame" x="18.666666666666657" y="481" width="337.66666666666674" height="34"/>
-                                <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.56470588239999997" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="gyp-Gv-Ukb"/>
                                 </constraints>
                                 <state key="normal" title="Save">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="goBackLogin:" destination="d2k-OX-29L" eventType="touchUpInside" id="iAq-Gp-Bxd"/>
@@ -214,17 +226,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ugm-qg-KRV">
+                                <rect key="frame" x="18" y="469" width="339" height="1"/>
+                                <color key="backgroundColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="r10-l7-JAU"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.56470588235294117" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="jbR-c6-pzi" firstAttribute="top" secondItem="FT9-uy-OLe" secondAttribute="bottom" constant="10" id="1b4-kb-SAN"/>
                             <constraint firstItem="jbR-c6-pzi" firstAttribute="centerX" secondItem="0ob-EB-sXP" secondAttribute="centerX" id="61F-a2-8zV"/>
                             <constraint firstItem="FT9-uy-OLe" firstAttribute="top" secondItem="oQG-U3-3yR" secondAttribute="bottom" constant="40" id="7AH-1Z-VEJ"/>
                             <constraint firstItem="FT9-uy-OLe" firstAttribute="centerX" secondItem="0ob-EB-sXP" secondAttribute="centerX" id="ENw-XM-PYY"/>
                             <constraint firstItem="jbR-c6-pzi" firstAttribute="width" secondItem="FUn-bu-Ybq" secondAttribute="width" multiplier="0.9" id="Gxd-1T-c50"/>
+                            <constraint firstItem="Ugm-qg-KRV" firstAttribute="centerX" secondItem="jbR-c6-pzi" secondAttribute="centerX" id="Jpq-E9-6T5"/>
+                            <constraint firstItem="Ugm-qg-KRV" firstAttribute="leading" secondItem="FUn-bu-Ybq" secondAttribute="leadingMargin" constant="2" id="YDi-BI-u8f"/>
                             <constraint firstItem="FT9-uy-OLe" firstAttribute="centerY" secondItem="0ob-EB-sXP" secondAttribute="centerY" id="ZXQ-U2-eyB"/>
                             <constraint firstItem="oQG-U3-3yR" firstAttribute="leading" secondItem="0ob-EB-sXP" secondAttribute="leading" constant="16" id="bm2-Sa-p0V"/>
                             <constraint firstItem="jbR-c6-pzi" firstAttribute="leading" secondItem="FT9-uy-OLe" secondAttribute="leading" id="cbW-yF-I0S"/>
+                            <constraint firstItem="jbR-c6-pzi" firstAttribute="top" secondItem="Ugm-qg-KRV" secondAttribute="bottom" constant="11" id="cet-Wx-4vS"/>
                             <constraint firstItem="jbR-c6-pzi" firstAttribute="top" secondItem="FT9-uy-OLe" secondAttribute="bottom" constant="10" id="ekl-Vb-uKk"/>
                             <constraint firstItem="FT9-uy-OLe" firstAttribute="width" secondItem="FUn-bu-Ybq" secondAttribute="width" multiplier="0.9" id="gep-OG-i0O"/>
                             <constraint firstItem="oQG-U3-3yR" firstAttribute="centerX" secondItem="FT9-uy-OLe" secondAttribute="centerX" id="kQ3-XC-HNF"/>
@@ -237,7 +259,7 @@
                         <outlet property="passwordTextField2" destination="jx3-mf-H3t" id="gx6-TV-G0S"/>
                         <outlet property="passwordView" destination="FT9-uy-OLe" id="Pd7-I5-zOp"/>
                         <outlet property="saveOutet" destination="jbR-c6-pzi" id="eg5-c1-Pvf"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="gotUser" id="njv-r0-WnG"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="gotUser" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="njv-r0-WnG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XIh-QR-4Pw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -260,7 +282,7 @@
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="2ko-CT-lad"/>
                                 <state key="normal" title="Log Out">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" animates="NO" id="cdN-JE-ENh"/>
@@ -273,7 +295,7 @@
                                     <constraint firstAttribute="height" constant="42" id="JX3-6Z-63N"/>
                                 </constraints>
                                 <state key="normal" title="Change Password">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
                                     <action selector="changePassword:" destination="IH8-6S-cSC" eventType="touchUpInside" id="wuA-Sy-N0I"/>
@@ -286,7 +308,7 @@
                                     <constraint firstAttribute="height" constant="42" id="Te8-OA-GvJ"/>
                                 </constraints>
                                 <state key="normal" title="Report A Problem">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
                                     <action selector="reportAProblem:" destination="IH8-6S-cSC" eventType="touchUpInside" id="fCv-ej-FNk"/>
@@ -304,11 +326,10 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="286" id="Glt-mW-kNn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="xfY-wD-6HG" firstAttribute="top" secondItem="TYs-vg-pV0" secondAttribute="bottom" constant="26" id="1lu-yS-xh8"/>
                             <constraint firstItem="TYs-vg-pV0" firstAttribute="leading" secondItem="xfY-wD-6HG" secondAttribute="leading" id="35m-J9-ccm"/>
@@ -353,10 +374,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="tCM-yn-GR9">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tCM-yn-GR9" id="IlI-s6-HbW">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -366,7 +387,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="qEs-zG-S5h" firstAttribute="bottom" secondItem="pGx-Ko-2ay" secondAttribute="bottom" constant="34" id="Ke9-Xc-Dkx"/>
                             <constraint firstItem="qEs-zG-S5h" firstAttribute="trailing" secondItem="pGx-Ko-2ay" secondAttribute="trailing" id="d9v-OE-wzW"/>
@@ -381,7 +402,7 @@
                                 <action selector="addItem:" destination="HVp-Yg-5at" id="dMo-Fm-HJy"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="e8l-al-J01">
+                        <barButtonItem key="rightBarButtonItem" image="ellipsis" catalog="system" id="e8l-al-J01">
                             <connections>
                                 <segue destination="IH8-6S-cSC" kind="show" id="VN6-77-DDq"/>
                             </connections>
@@ -440,14 +461,14 @@
                                         <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <state key="normal" title="Dismiss">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
                                             <action selector="dismissButton:" destination="CmY-fU-S7U" eventType="touchUpInside" id="Dhc-XH-y6G"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="eNc-4w-QdH" firstAttribute="leading" secondItem="7WZ-HK-hfB" secondAttribute="leading" constant="8" id="0Jn-yY-FpU"/>
                                     <constraint firstItem="eNc-4w-QdH" firstAttribute="top" secondItem="xuX-gl-YsL" secondAttribute="bottom" constant="10" id="0Op-XL-Po4"/>
@@ -496,6 +517,7 @@
             <objects>
                 <navigationController storyboardIdentifier="navVC" automaticallyAdjustsScrollViewInsets="NO" id="J8M-J2-c4n" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="r0E-nv-dCh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XLF-j3-4n3">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -510,6 +532,9 @@
             <point key="canvasLocation" x="948.75" y="29.577464788732396"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ellipsis" catalog="system" width="64" height="18"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cdN-JE-ENh"/>
     </inferredMetricsTieBreakers>

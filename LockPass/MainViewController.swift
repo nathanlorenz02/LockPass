@@ -19,6 +19,7 @@ var username: [NSManagedObject] = []
 class MainViewController: UIViewController, MFMailComposeViewControllerDelegate, UITextFieldDelegate, UITableViewDelegate {
     
     
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
@@ -120,7 +121,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     {
         emailTextField = textfield
         self.emailTextField.keyboardType = UIKeyboardType.emailAddress
-        emailTextField.placeholder = "Email (i.e. someone@icloud.com)"
+        emailTextField.placeholder = "Email (i.e. you@icloud.com)"
     }
     func passwordTextField(textfield: UITextField!)
     {
@@ -307,8 +308,39 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     }
     
     
+    //TableView Context Menu
     
-    
+    @available(iOS 13.0, *)
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { actions -> UIMenu? in
+            let action1 = UIAction(title: "Delete", image: UIImage(systemName: "trash.fill"), handler: { action in
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                let context = appDelegate.persistentContainer.viewContext
+                context.delete(titlename[indexPath.row])
+                context.delete(emailname[indexPath.row])
+                context.delete(passwordname[indexPath.row])
+                context.delete(username[indexPath.row])
+                
+                titlename.remove(at: indexPath.row)
+                emailname.remove(at: indexPath.row)
+                passwordname.remove(at: indexPath.row)
+                username.remove(at: indexPath.row)
+                
+                do
+                {
+                    try context.save()
+                }
+                catch
+                {
+                    print("Error: There was a error in deleteing")
+                }
+
+                tableView.reloadData()
+            })
+            return UIMenu.init(title: "Menu", image: nil, identifier: nil, options: .destructive, children: [action1])
+        }
+        return configuration
+    }
 }
 
 extension MainViewController: UITableViewDataSource {

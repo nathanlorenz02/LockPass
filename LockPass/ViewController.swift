@@ -72,7 +72,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
             context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Use Touch ID/Face ID to login", reply: { (wasSuccess, error) in
                 if wasSuccess
                 {
-                    self.performSegue(withIdentifier: "loggedIn", sender: self)
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "loggedIn", sender: self)
+                    }
                 }
                 else
                 {

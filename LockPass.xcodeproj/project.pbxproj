@@ -15,28 +15,9 @@
 		43C2F86E1FB63E28004E78FE /* LockPass.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 43C2F86C1FB63E28004E78FE /* LockPass.xcdatamodeld */; };
 		43C2F8701FB63E28004E78FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43C2F86F1FB63E28004E78FE /* Assets.xcassets */; };
 		43C2F8731FB63E28004E78FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C2F8711FB63E28004E78FE /* LaunchScreen.storyboard */; };
-		43C2F87E1FB63E28004E78FE /* LockPassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C2F87D1FB63E28004E78FE /* LockPassTests.swift */; };
-		43C2F8891FB63E28004E78FE /* LockPassUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C2F8881FB63E28004E78FE /* LockPassUITests.swift */; };
 		43C2F8B91FB6416B004E78FE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C2F8B81FB6416B004E78FE /* MainViewController.swift */; };
 		43C2F8BB1FB64645004E78FE /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C2F8BA1FB64645004E78FE /* CreateAccountViewController.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		43C2F87A1FB63E28004E78FE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 43C2F85A1FB63E27004E78FE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 43C2F8611FB63E27004E78FE;
-			remoteInfo = LockPass;
-		};
-		43C2F8851FB63E28004E78FE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 43C2F85A1FB63E27004E78FE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 43C2F8611FB63E27004E78FE;
-			remoteInfo = LockPass;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		43007F0D2064169600DC9035 /* ItemInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoViewController.swift; sourceTree = "<group>"; };
@@ -50,32 +31,12 @@
 		43C2F86F1FB63E28004E78FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43C2F8721FB63E28004E78FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43C2F8741FB63E28004E78FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		43C2F8791FB63E28004E78FE /* LockPassTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LockPassTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		43C2F87D1FB63E28004E78FE /* LockPassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockPassTests.swift; sourceTree = "<group>"; };
-		43C2F87F1FB63E28004E78FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		43C2F8841FB63E28004E78FE /* LockPassUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LockPassUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		43C2F8881FB63E28004E78FE /* LockPassUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockPassUITests.swift; sourceTree = "<group>"; };
-		43C2F88A1FB63E28004E78FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43C2F8B81FB6416B004E78FE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		43C2F8BA1FB64645004E78FE /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		43C2F85F1FB63E27004E78FE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		43C2F8761FB63E28004E78FE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		43C2F8811FB63E28004E78FE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -89,8 +50,6 @@
 			isa = PBXGroup;
 			children = (
 				43C2F8641FB63E27004E78FE /* LockPass */,
-				43C2F87C1FB63E28004E78FE /* LockPassTests */,
-				43C2F8871FB63E28004E78FE /* LockPassUITests */,
 				43C2F8631FB63E27004E78FE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,8 +58,6 @@
 			isa = PBXGroup;
 			children = (
 				43C2F8621FB63E27004E78FE /* LockPass.app */,
-				43C2F8791FB63E28004E78FE /* LockPassTests.xctest */,
-				43C2F8841FB63E28004E78FE /* LockPassUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,24 +81,6 @@
 			path = LockPass;
 			sourceTree = "<group>";
 		};
-		43C2F87C1FB63E28004E78FE /* LockPassTests */ = {
-			isa = PBXGroup;
-			children = (
-				43C2F87D1FB63E28004E78FE /* LockPassTests.swift */,
-				43C2F87F1FB63E28004E78FE /* Info.plist */,
-			);
-			path = LockPassTests;
-			sourceTree = "<group>";
-		};
-		43C2F8871FB63E28004E78FE /* LockPassUITests */ = {
-			isa = PBXGroup;
-			children = (
-				43C2F8881FB63E28004E78FE /* LockPassUITests.swift */,
-				43C2F88A1FB63E28004E78FE /* Info.plist */,
-			);
-			path = LockPassUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -162,42 +101,6 @@
 			productReference = 43C2F8621FB63E27004E78FE /* LockPass.app */;
 			productType = "com.apple.product-type.application";
 		};
-		43C2F8781FB63E28004E78FE /* LockPassTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 43C2F8901FB63E28004E78FE /* Build configuration list for PBXNativeTarget "LockPassTests" */;
-			buildPhases = (
-				43C2F8751FB63E28004E78FE /* Sources */,
-				43C2F8761FB63E28004E78FE /* Frameworks */,
-				43C2F8771FB63E28004E78FE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				43C2F87B1FB63E28004E78FE /* PBXTargetDependency */,
-			);
-			name = LockPassTests;
-			productName = LockPassTests;
-			productReference = 43C2F8791FB63E28004E78FE /* LockPassTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		43C2F8831FB63E28004E78FE /* LockPassUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 43C2F8931FB63E28004E78FE /* Build configuration list for PBXNativeTarget "LockPassUITests" */;
-			buildPhases = (
-				43C2F8801FB63E28004E78FE /* Sources */,
-				43C2F8811FB63E28004E78FE /* Frameworks */,
-				43C2F8821FB63E28004E78FE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				43C2F8861FB63E28004E78FE /* PBXTargetDependency */,
-			);
-			name = LockPassUITests;
-			productName = LockPassUITests;
-			productReference = 43C2F8841FB63E28004E78FE /* LockPassUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -210,25 +113,13 @@
 				TargetAttributes = {
 					43C2F8611FB63E27004E78FE = {
 						CreatedOnToolsVersion = 9.0.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.DataProtection = {
 								enabled = 1;
 							};
 						};
-					};
-					43C2F8781FB63E28004E78FE = {
-						CreatedOnToolsVersion = 9.0.1;
-						LastSwiftMigration = 1000;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 43C2F8611FB63E27004E78FE;
-					};
-					43C2F8831FB63E28004E78FE = {
-						CreatedOnToolsVersion = 9.0.1;
-						LastSwiftMigration = 1000;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 43C2F8611FB63E27004E78FE;
 					};
 				};
 			};
@@ -246,8 +137,6 @@
 			projectRoot = "";
 			targets = (
 				43C2F8611FB63E27004E78FE /* LockPass */,
-				43C2F8781FB63E28004E78FE /* LockPassTests */,
-				43C2F8831FB63E28004E78FE /* LockPassUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -260,20 +149,6 @@
 				43C2F8731FB63E28004E78FE /* LaunchScreen.storyboard in Resources */,
 				43C2F8701FB63E28004E78FE /* Assets.xcassets in Resources */,
 				43C2F86B1FB63E28004E78FE /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		43C2F8771FB63E28004E78FE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		43C2F8821FB63E28004E78FE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,36 +169,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		43C2F8751FB63E28004E78FE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				43C2F87E1FB63E28004E78FE /* LockPassTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		43C2F8801FB63E28004E78FE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				43C2F8891FB63E28004E78FE /* LockPassUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		43C2F87B1FB63E28004E78FE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 43C2F8611FB63E27004E78FE /* LockPass */;
-			targetProxy = 43C2F87A1FB63E28004E78FE /* PBXContainerItemProxy */;
-		};
-		43C2F8861FB63E28004E78FE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 43C2F8611FB63E27004E78FE /* LockPass */;
-			targetProxy = 43C2F8851FB63E28004E78FE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		43C2F8691FB63E28004E78FE /* Main.storyboard */ = {
@@ -389,7 +235,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -405,45 +251,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68AW59MP7J;
 				INFOPLIST_FILE = LockPass/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nathanlorenz.LocksPass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		43C2F8921FB63E28004E78FE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T29VDL6SJ5;
-				INFOPLIST_FILE = LockPassTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nathanlorenz.LockPassTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LockPass.app/LockPass";
-			};
-			name = Release;
-		};
-		43C2F8951FB63E28004E78FE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T29VDL6SJ5;
-				INFOPLIST_FILE = LockPassUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nathanlorenz.LockPassUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = LockPass;
 			};
 			name = Release;
 		};
@@ -462,22 +275,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				43C2F88F1FB63E28004E78FE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		43C2F8901FB63E28004E78FE /* Build configuration list for PBXNativeTarget "LockPassTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				43C2F8921FB63E28004E78FE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		43C2F8931FB63E28004E78FE /* Build configuration list for PBXNativeTarget "LockPassUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				43C2F8951FB63E28004E78FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
