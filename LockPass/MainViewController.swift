@@ -27,11 +27,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if #available(iOS 11.0, *) {
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        } else {
-           
-        }
         
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
         if didAllow
@@ -309,7 +305,6 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     
     
     //TableView Context Menu
-    
     @available(iOS 13.0, *)
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { actions -> UIMenu? in

@@ -24,14 +24,8 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if #available(iOS 11.0, *) {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        }
-        else
-        {
-            
-        }
-
+       self.navigationController?.navigationBar.prefersLargeTitles = true
+        
         changePasswordButton.layer.cornerRadius = 7
         reportAProblemButton.layer.cornerRadius = 7
         logOutButton.layer.cornerRadius = 7
