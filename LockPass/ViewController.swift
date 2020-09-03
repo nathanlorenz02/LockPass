@@ -193,11 +193,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     if theAuthPriority == true
                     {
                         //Request Authentication
-                        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.authTimer), userInfo: nil, repeats: false)
+                        timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(self.authTimer), userInfo: nil, repeats: false)
                     }
                     else
                     {
-                        //Do nothing
+                        //Do nothing    a
                     }
                 }
             }

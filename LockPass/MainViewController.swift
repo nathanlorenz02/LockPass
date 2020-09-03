@@ -110,7 +110,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     func nameTextField(textfield: UITextField!)
     {
         nameTextField = textfield
-        nameTextField.placeholder = "Item Name (i.e. Facebook)"
+        nameTextField.placeholder = "Item Name (i.e. Apple ID)"
         nameTextField.autocapitalizationType = .words
     }
     func emailTextField(textfield: UITextField!)
